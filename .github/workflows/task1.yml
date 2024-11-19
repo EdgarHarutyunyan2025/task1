@@ -1,7 +1,9 @@
 name: task1
+  
 on:
   push:
-    - main
+    branches:
+      - main
 
 jobs:
   test_task1:
