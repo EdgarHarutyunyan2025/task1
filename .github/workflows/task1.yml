@@ -1,0 +1,11 @@
+name: task1
+on:
+  push:
+    - main
+
+jobs:
+  test_task1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print Hello World
+        run: echo "Hello World"
