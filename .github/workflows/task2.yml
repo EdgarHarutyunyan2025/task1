@@ -8,6 +8,8 @@ on:
 
 jobs:
   test_task2:
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.version }}
     strategy:
       matrix:
         version: [18]
@@ -19,8 +21,6 @@ jobs:
             version: 18
           - os: macos-latest
             version: 12  
-    runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.os }}
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
