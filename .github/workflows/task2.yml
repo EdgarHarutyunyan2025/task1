@@ -12,6 +12,9 @@ jobs:
       matrix:
         version: [18,20]
         os: [ubuntu-latest,windows-latest,macos-latest]
+        include:
+          - os: ubuntu-latest
+            version: 16
     runs-on: ${{ matrix.os }}
     steps:
       - name: checkout repo
