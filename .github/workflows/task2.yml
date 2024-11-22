@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
-        uses: actions/setuo-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
       - name: instal deps
