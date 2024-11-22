@@ -8,13 +8,14 @@ jobs:
   python-coin-test:
     runs-on: self-hosted
     needs:
+      - install-deps
+      - lint
+    steps:
       - name: list dir
         run: | 
           pwd
           ls -la
-      - install-deps
-      - lint
-    steps:
+
       - name: run script
         run: python3 script.py
 
