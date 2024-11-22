@@ -8,10 +8,16 @@ on:
 
 jobs:
   test_task2:
-    runs-on: ubuntu-latest
+    strategy:
+      version: [14,16]
+      os: [ubuntu-latest,windows-latest,macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
+        uses: actions/setuo-node@v3
+        with:
+          node-version: ${{ matrix.version }}
       - name: instal deps
         run: npm install
       - name: run script
