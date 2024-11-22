@@ -9,7 +9,7 @@ on:
 jobs:
   test_task2:
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.os }}
+    continue-on-error: true
     strategy:
       matrix:
         version: [18]
