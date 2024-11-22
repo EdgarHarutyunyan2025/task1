@@ -10,7 +10,7 @@ jobs:
   test_task2:
     strategy:
       matrix:
-#        version: [18,20]
+        version: [18]
         os: [ubuntu-latest,windows-latest,macos-latest]
         include:
           - os: ubuntu-latest
