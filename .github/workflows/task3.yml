@@ -25,6 +25,10 @@ jobs:
     steps:
       - name: venv
         run: source myenv/bin/activate
+      - name: list dir
+        run: |
+          ls -la 
+          pwd
       - name: install dependencies
         run: pip install requests
       
