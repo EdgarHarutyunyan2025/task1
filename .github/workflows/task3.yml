@@ -27,4 +27,4 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
       - name: test code
-        run: pylint script.sh
+        run: pylint script.py
