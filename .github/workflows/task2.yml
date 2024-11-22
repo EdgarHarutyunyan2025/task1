@@ -20,7 +20,7 @@ jobs:
           - os: windows-latest
             version: 18
           - os: macos-latest
-            version: 12  
+            version: 20 
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
