@@ -20,8 +20,8 @@ def convert_currency(qanak,gumar,arjeq):
 
 def main():
     qanak= 100
-    gumar= USD
-    arjeq= EUR
+    gumar= "USD"
+    arjeq= "EUR"
 
     converted_amount = convert_currency(qanak,gumar,arjeq)
     if converted_amount is not None:

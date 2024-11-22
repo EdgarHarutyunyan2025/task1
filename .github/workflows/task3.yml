@@ -23,6 +23,8 @@ jobs:
     runs-on: self-hosted
     needs: lint
     steps:
+      - name: venv
+        run: source myenv/bin/activate
       - name: install dependencies
         run: pip install requests
       
