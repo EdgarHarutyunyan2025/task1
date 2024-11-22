@@ -16,18 +16,18 @@ jobs:
           pwd
           ls -la
 
-      - name: run script
+      - name: activate the virtual environment and run the script
         run: |
           source myenv/bin/activate
-          python3 script.py
+          ./coincap.py
 
   install-deps:
     runs-on: self-hosted
     needs: lint
     steps:
-      - name: path to  venv
+      - name: Create a virtual environment
         run: python3 -m venv  myvenv
-      - name: venv
+      - name: install dependencies in virtual environment
         run: |
              source myenv/bin/activate
              pip install requests
@@ -38,5 +38,5 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
       - name: test code
-        run: pylint script.py
+        run: pylint coincap.py
         continue-on-error: true
