@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         version: [18]
-        os: [ubuntu-latest,windows-latest,macos-latest]
+        os: [ubuntu-latest,self-hosted,macos-latest]
         include:
           - os: ubuntu-latest
             version: 16
