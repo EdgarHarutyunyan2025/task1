@@ -1,0 +1,28 @@
+name: task3
+on:
+  push:
+    branches:
+      - lessons3
+
+jobs:
+  python-coin-test:
+    runs-on: self-hosted
+    needs:
+      - install-deps
+      - lint
+    steps:
+      - name: run script
+        run: python3 script.py
+
+  install-deps:
+    runs-on: self-hosted
+    needs: lint
+    steps:
+      - name: install dependencies
+        run: pip install requests
+      
+  lint:
+    runs-on: self-hosted
+    steps:
+      - name: test code
+        run: pylint script.sh
