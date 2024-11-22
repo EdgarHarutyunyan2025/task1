@@ -20,7 +20,7 @@ jobs:
           - os: macos-latest
             version: 12  
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.version }}
+    continue-on-error: ${{ matrix.os }}
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
