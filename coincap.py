@@ -46,7 +46,7 @@ def main():
     """
     amount = 100
     base_currency = "USD"
-    target_currency = "EUR"
+    target_currency = "AMD"
 
     converted_amount = convert_currency(amount, base_currency, target_currency)
     if converted_amount is not None:
