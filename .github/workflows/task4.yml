@@ -19,7 +19,7 @@ jobs:
       - name: git repo
         run: |
           git config --global user.name ${{ env.MY_GUTHUB_name }}
-          git config --global user.email $MY_GUTHUB_emale
+          git config --global user.email ${{ MY_GUTHUB_emale }}
       - name: clone dir my repo
         run: git clone https://github.com/EdgarHarutyunyan2025/$MY_GUTHUB_REPO.git
       - name: cd dir
