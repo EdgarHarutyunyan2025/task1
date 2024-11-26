@@ -7,6 +7,9 @@ on:
   push:
     branches: 
       - lessons4
+concurrency:
+  group: 'deploy-to-production' 
+  cancel-in-progress: true
 
 jobs:
   my_testing: 
