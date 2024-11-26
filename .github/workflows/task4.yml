@@ -29,3 +29,4 @@ jobs:
           cd $MY_GUTHUB_REPO
           echo "hello world" >> text.txt
           ls -la
+          cat text.txt
