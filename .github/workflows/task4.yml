@@ -7,8 +7,6 @@ on:
   push:
     branches: 
       - lessons4
-permissions:
-  contents: read
 
 jobs:
   my_testing: 
@@ -27,6 +25,4 @@ jobs:
       - name: cd dir
         run: | 
           cd $MY_GUTHUB_REPO
-          echo "hello world" >> text.txt
           ls -la
-          cat text.txt
