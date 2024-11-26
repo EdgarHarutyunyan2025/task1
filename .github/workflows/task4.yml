@@ -27,5 +27,5 @@ jobs:
       - name: cd dir
         run: | 
           cd $MY_GUTHUB_REPO
-          ls -la
           echo "hello world" >> text.txt
+          ls -la
