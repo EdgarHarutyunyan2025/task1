@@ -43,7 +43,7 @@ jobs:
 
   CD_my_host:
     runs-on: ubuntu-latest
-
+    needs: python-coin-test 
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
