@@ -53,6 +53,7 @@ jobs:
 
     - name: Copy files to server
       run: |
+        ping 192.168.1.113
         ssh -p 22 edgar@192.168.1.113
         scp -r  ./coincap.py  edgar@192.168.1.113:/cd/test
 
