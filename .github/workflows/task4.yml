@@ -1,32 +1,62 @@
-name: test
-env:
-  MY_GUTHUB_name : "EdgarHarutyunyan2025"
-  MY_GUTHUB_emale: "edgar_harutyunyan_2025@mail.ru"
-  MY_GUTHUB_REPO: "task1"
-on: 
+name: task3
+on:
   push:
-    branches: 
-      - lessons4
-concurrency:
-  group: 'deploy-to-production' 
-  cancel-in-progress: true
+    branches:
+      - lessons3
 
 jobs:
-  my_testing: 
-    runs-on: ubuntu-latest
+  python-coin-test:
+    runs-on: self-hosted
+    needs:
+      - install-deps
+      - lint
     steps:
-      - name: print hello message in testing
-        run: echo "hello world from testing job" 
-      - name: list
-        run: ls -la
-      - name: git repo
-        run: |
-          git config --global user.name ${{ env.MY_GUTHUB_name }}
-          git config --global user.email ${{ env.MY_GUTHUB_emale }}
-      - name: clone dir my repo
-        run: git clone https://github.com/EdgarHarutyunyan2025/$MY_GUTHUB_REPO.git
-      - name: cd dir
+      - name: list dir
         run: | 
-          cd $MY_GUTHUB_REPO
+          pwd
           ls -la
 
+      - name: activate the virtual environment and run the script
+        run: |
+          source myenv/bin/activate
+          ./coincap.py
+
+  install-deps:
+    runs-on: self-hosted
+    needs: lint
+    steps:
+      - name: Create a virtual environment
+        run: python3 -m venv  myvenv
+      - name: install dependencies in virtual environment
+        run: |
+             source myenv/bin/activate
+             pip install requests
+      
+  lint:
+    runs-on: self-hosted
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: test code
+        run: pylint coincap.py
+        continue-on-error: true
+
+  CD_my_host:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.MY_SSH_KEY }}
+
+    - name: Copy files to server
+      run: |
+        scp -r  ./coincap.py  edgar@192.168.1.113:/cd/test
+
+    - name: Restart server
+      run: |
+        ssh edgar@192.168.1.113 ./cd/test/coincap.py
