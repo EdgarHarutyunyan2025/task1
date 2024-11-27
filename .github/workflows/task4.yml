@@ -2,7 +2,7 @@ name: task3
 on:
   push:
     branches:
-      - lessons3
+      - lessons4
 
 jobs:
   python-coin-test:
