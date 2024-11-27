@@ -25,12 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: lint
     steps:
-      - name: Create a virtual environment
-        run: python3 -m venv  myvenv
-      - name: install dependencies in virtual environment
-        run: |
-             source myenv/bin/activate
-             pip install requests
+      - name: install dependencies 
+        run:  pip install requests
       
   lint:
     runs-on: ubuntu-latest
