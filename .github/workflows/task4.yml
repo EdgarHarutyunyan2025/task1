@@ -16,10 +16,8 @@ jobs:
           pwd
           ls -la
 
-      - name: activate the virtual environment and run the script
-        run: |
-          source myenv/bin/activate
-          ./coincap.py
+      - name:  run the script
+        run:  ./coincap.py
 
   install-deps:
     runs-on: ubuntu-latest
