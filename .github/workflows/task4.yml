@@ -34,7 +34,9 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
       - name: test code
-        run: pylint coincap.py
+        run: |
+        pip install pylint
+        pylint coincap.py
         continue-on-error: true
 
   CD_my_host:
@@ -51,7 +53,7 @@ jobs:
 
     - name: Copy files to server
       run: |
-        scp -r  ./coincap.py  edgar@192.168.1.113:/cd/test
+        scp -r  ./coincap.py  edgar@Lenovo:/cd/test
 
     - name: Restart server
       run: |
