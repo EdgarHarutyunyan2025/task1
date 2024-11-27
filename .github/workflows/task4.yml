@@ -35,8 +35,8 @@ jobs:
         uses: actions/checkout@v4
       - name: test code
         run: |
-        pip install pylint
-        pylint coincap.py
+          pip install pylint
+          pylint coincap.py
         continue-on-error: true
 
   CD_my_host:
