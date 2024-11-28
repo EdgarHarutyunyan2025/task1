@@ -27,7 +27,12 @@ jobs:
     steps:
       - name: install dependencies 
         run:  pip install requests
-      
+      - name: env
+        env:
+          myenv: "hello world"
+        run: echo $myenv
+      - name: test
+        run: echo  $myenv
   lint:
     runs-on: ubuntu-latest
     steps:
