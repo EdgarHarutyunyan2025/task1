@@ -29,10 +29,10 @@ jobs:
         run:  pip install requests
       - name: env
         env:
-          myenv: "hello world"
+          myenv: echo "myenv=hello world" >> $GITHUB_ENV
         run: echo $myenv
       - name: test
-        run: echo  ${{ myenv }}
+        run: echo  $myenv
   lint:
     runs-on: ubuntu-latest
     steps:
