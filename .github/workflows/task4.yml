@@ -32,7 +32,7 @@ jobs:
           myenv: "hello world"
         run: echo $myenv
       - name: test
-        run: echo  ${{ env.myenv }}
+        run: echo  ${{ myenv }}
   lint:
     runs-on: ubuntu-latest
     steps:
